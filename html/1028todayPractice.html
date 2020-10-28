@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todayPractice10/28</title>
+    <style>
+        .human{
+            border-collapse: collapse;
+            border-color: seagreen;
+            background-color:tomato;
+            text-align: center;  /* 텍스트 가운데 정렬 */
+        }
+
+        table.chart{
+            border-collapse: collapse;
+            text-align: center;  /* 텍스트 가운데 정렬 */
+            
+        }
+
+        fieldset{
+            width: 500px;
+            
+        }
+
+        div{
+            width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>오늘배운 테이블부터 해보자!</h1>
+        <table class="human" border="1">
+            <caption>인간목록<a href="naver.com" title="구름구름">(고고)</a></caption>
+            <colgroup>
+                <col width="100">
+                <col width="100">
+                <col width="100">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>num</th>
+                    <th>name</th>
+                    <th>loc</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>박종원</td>
+                    <td>대구</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>이승환</td>
+                    <td>서산</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>오혜원</td>
+                    <td>당진</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>박승진</td>
+                    <td>충주</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>최주용</td>
+                    <td>홍성</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>5명</th>
+                    <th>좋은사람들</th>
+                    <th>지역</th>
+                </tr>
+            </tfoot>
+        </table><br><br><br>
+        <table class="chart" border="1">
+            <colgroup>
+                <col width="100">
+                <col width="100">
+                <col width="100">
+            </colgroup>
+            <tr>
+                <td colspan="2"; rowspan="2">1</td>
+                <!-- <td>2</td> -->
+                <td>3</td>
+            </tr>
+            <tr>
+                <!-- <td>4</td> -->
+                <!-- <td>5</td> -->
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </div><p></p>
+    <div>
+        <h1 class="num1">폼 요소 작성하기1</h1>
+        <form action="login.jsp"><!--해당 폼데이터가 전송되는 서버 위치-->
+            <label for="email">이메일</label>
+            <input type="text" id="email" name="email">
+            <label for="pwd">비번</label>
+            <input type="password" id="pw" name="pw">
+            <button type="submit">로그인</button>
+        </form>
+    </div><p></p>
+    <div>
+        <h1 class="num2">폼 요소 작성하기2</h1>
+        <form action="signup.jsp">
+            <label>
+                <input type="radio" name="gender" value="man" checked/>남자
+            </label>
+            <label>
+                <input type="radio" name="gender" value="woman"/>여자
+            </label><br><br>
+            <button type="submit">가입</button>
+            <button type="reset">취소</button>
+        </form>
+    </div><br><br><br>
+    <div>
+        <h1>필드셋 등 연습</h1>
+        <fieldset>
+            <legend align="center">성별정보선택</legend>
+            <label>
+                <input type="radio" name="gender" value="man" checked/>남자
+            </label>
+            <label>
+                <input type="radio" name="gender" value="woman"/>여자
+            </label>
+        </fieldset><br><br>
+        <fieldset>
+            <legend align="center">취미 정보 선택</legend>
+            <label>
+                <input type="checkbox" name="hobby" value="piano"/>피아노
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="carom"/>당구
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="beer"/>맥주
+            </label>
+        </fieldset>
+    </div> <p></p>
+    <div>
+        <label for="job">직업선택</label>
+        <select name="job" id="job" multiple>
+            <option value="">선택</option>
+            <option value="teacher">선생</option>
+            <option value="doctor">의사</option>
+            <option value="actor">배우</option>
+        </select><br><br>
+        <label for="coffee">커피선택</label>
+        <select name="coffee" id="coffee">
+            <optgroup label="에스프레소">
+                <option>아메리카노</option>
+                <option>카페라떼</option>
+                <option>카페모카</option>
+            </optgroup>
+            <optgroup label="프라프치노">
+                <option>자바칩 프라푸치노</option>
+                <option>민트초코 프라푸치노</option>
+                <option>오렌지 프라푸치노</option>
+            </optgroup>
+        </select> <br><br>
+        <label for="file">파일선택</label>
+        <input type="file" id="file" name="file"/> <br><br>
+        <label for="comment">하고 싶은 말</label><br>
+        <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+    </div><p></p>
+    <div>
+        <table>
+            <tr>
+                <td><label for="email">아이디</label></td>
+                <td><input type="text" name="email" id="email"><br></td>
+            </tr>
+            <tr>
+                <td><label for="pw">비밀번호</label></td>
+                <td> <input type="password" name="pw" id="pw"></td>
+            </tr>
+        </table>
+        
+           
+            
+            
+           
+    </div>
+</body>
+</html>
