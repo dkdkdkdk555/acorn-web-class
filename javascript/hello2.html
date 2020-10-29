@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello2.html</title>
+</head>
+<body>
+    <p onmouseover="onOver()" onmouseout="onOut()" id="pnut">마우스를 올려보셔</p>
+    <button>바꾸기</button><br><BR></BR>
+    <img src="images/6.jpg" id="hyoju" onclick="ccc()">
+
+    <script>
+
+
+        function onOver() {
+            document.querySelector("#pnut").style.color="blue";
+            document.querySelector("#pnut").style.fontSize="100px";
+        }
+
+        function onOut() {
+            document.querySelector("#pnut").style.color="black";
+            document.querySelector("#pnut").style.fontSize="10px";
+        }
+
+        function ccc() {
+            document.querySelector("#hyoju").setAttribute("src", "images/1.jpg");
+        }
+    </script>    
+</body>
+</html>
