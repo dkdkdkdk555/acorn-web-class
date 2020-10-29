@@ -9,6 +9,26 @@
     <p id="one" onclick="document.querySelector('#one').innerText='안녕히가세요.';">
         안녕하세요</p>
     <p id="two" onmouseover="document.querySelector('#two').innerText='어기구.';">어쩌구</p>
-    <p id="three">저쩌그</p>
+    <p id="three" onmouseover="a();">저쩌그</p>
+
+    <!--아래 버튼을 클릭하면 id가 result로 지정된 p 요소에 
+     "버튼을 클릭했네?" 라고 출력해 보시오-->
+
+     <button onclick="b();">눌러보셈</button>
+     <p id="result"></p>
+    <script>
+        
+        function a() {
+            document.querySelector("#three").innerText="해골";
+            document.querySelector("#three").style.color="red";
+            document.querySelector("#three").style.fontSize="100px";
+        } 
+        function b() {
+            document.querySelector("#result").innerText="버튼을 클릭했네?";
+            document.querySelector("#result").style.color="red";
+            document.querySelector("#result").style.fontSize="80px";
+        }
+
+     </script>
 </body>
 </html>
