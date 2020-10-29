@@ -8,10 +8,23 @@
 <body>
     <p onmouseover="onOver()" onmouseout="onOut()" id="pnut">마우스를 올려보셔</p>
     <button>바꾸기</button><br><BR></BR>
-    <img src="images/6.jpg" id="hyoju" onclick="ccc()">
+    <img src="images/6.jpg" id="hyoju" onclick="ccc()"><br><br><br>
+
+    <div>
+        <img src="images/rabbit_1.png" onclick="ak()" id="fr"/><br>
+        <button id="tt" style="display: none;" onclick="bk();">가즈아~</button>
+    </div>
 
     <script>
 
+        function bk() {
+            location.href="https://daum.net";
+        }
+
+        function ak() {
+            document.querySelector("#tt").style.display="inline";
+            document.querySelector("#fr").style.display="none";
+        }
 
         function onOver() {
             document.querySelector("#pnut").style.color="blue";
