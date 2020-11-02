@@ -1,0 +1,252 @@
+<!DOCTYPE html><!---이 문서는 html문서입니다. document의 type이 html 이다.-->
+<html lang="en"> <!---영어가 이문서의 주된 언어이다.--->
+<head><!---본문을 설명하는 태그---->
+    <meta charset="UTF-8"><!--문자셋 : UTF-8-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestPrepare.html</title><!---이 웹페이지의 제목-->
+    <style>
+        .icecream{
+            border-collapse: collapse;
+            background-color: cornflowerblue;
+            border-color: hotpink;
+            text-align: center;
+            align-self: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1{
+            color: hotpink;
+            text-align: center;
+        }
+
+        div{
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table{
+            border-collapse: collapse;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h3{
+            text-align: center;
+        }
+       
+        ol{
+            width: fit-content;
+            margin-left: 123px;
+        }
+
+        ul{
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        dl{
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form{
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center; /* 여기서 텍스트는 상속되는 자식태그모두를 가리킨다. */
+        }
+
+        .hg{
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body><!---본문내용---->
+    <div> <a href="#four"> anchor목록으로 이동 </a></div>
+    <div>
+        <h1>스텝08 테이블</h1>
+        <table border="1" class="icecream" id="one">
+            <caption>Icecream <a href="http://www.naver.com" title="구름구름">바로가기</a></caption>
+            <colgroup>
+                <col width=100>
+                <col width=100>
+                <col width=100>
+            </colgroup>
+            <thead>
+                <th>번호</th>
+                <th>제품이름</th>
+                <th>가격</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>바밤바</td>
+                    <td>500원</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>붕어싸만코</td>
+                    <td>900원</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>거북알</td>
+                    <td>600원</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <th>3개</th>
+                <th>아이스크림</th>
+                <th>총합:2000원</th>
+            </tfoot>
+        </table><p></p><br><br>
+        <table border="1">
+            <colgroup>
+                <col width=50>
+                <col width=50>
+                <col width=50>
+            </colgroup>
+            <tr>
+                <td colspan="2" rowspan="2">1</td>
+                <!-- <td>2</td> -->
+                <td>3</td>
+            </tr>
+            <tr>
+                <!-- <td>4</td> -->
+                <!-- <td>5</td> -->
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </div><br><br><br>
+    <div>   
+        <h1>스텝05~07 목록연습해보자!</h1>
+        <h3>unordered list</h3>
+        <ul>
+            <li>ul은</li>
+            <li>unordered list라는 뜻으로</li>
+            <li>순번이 매겨지지 않은 목록이라는 뜻입니다.</li>
+        </ul>
+        <h3>ordered list</h3>
+        <ol>
+            <li>ol은</li>
+            <li>ordered list라는 뜻으로</li>
+            <li>순번이 매겨진 목록이라는 뜻이랑께</li>
+        </ol>
+        <h3>definition list</h3>
+        <dl>
+            <dt>dl은</dt>
+            <dd>definition list라는 뜻으로</dd>
+            <dt>개념명</dt>
+            <dd>: 하위구조로 정의,설명 하는 구조의 목록입니다.</dd>
+        </dl>
+    </div><br><br><br>
+    <div>
+        <h1 id="two">스텝09 폼요소 연습하기</h1>
+        <form action="login.jsp"><!---action요소는 form의 정보를 어디로 전송하는지 정보를 담고있다.-->
+            <label for="email">이메일</label>
+            <input type="text" id="email" name="email">
+            <label for="pw">비밀번호</label>
+            <input type="password" id="pw" name="pw">
+            <button type="submit">가입</button>
+        </form><br><br>
+        <form action="login.jsp">
+            <label>
+                <input type="radio" name="gender" id="man" checked>남자
+            </label><!----name 속성을 같게하면 그루핑이되어 양자택일이라는 라디오버튼 속성이 적용됨-->
+            <label>
+                <input type="radio" name="gender" id="woman">여자
+            </label>
+        </form><br><br>
+        <form action="login.jsp">
+            <fieldset>
+                <legend style="text-align: center;">취미정보선택</legend>
+                <label>
+                    <input type="checkbox" name="hobby" value="guitar">기타
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="piano">피아노
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="violin">바이올린
+                </label>
+            </fieldset><br><br>
+            <label for="china">최애중국음식</label>
+            <select name="china" id="china">
+                <optgroup label="식사류">
+                <option value="blacknuddle">짜장면</option>
+                <option value="spicyseafoodnuddle">짬뽕</option>
+                <option value="mixedrice">볶음밥</option></optgroup>
+                <optgroup label="요리류">
+                <option value="chicken">깐풍기</option>
+                <option value="crispyshirimp">깐쇼새우</option>
+                <option value="friedpork">탕수육</option></optgroup>
+            </select><br><br>
+            <label for="job">직업선택</label>
+            <select name="job" id="job">
+                <option value="dev">개발자</option>
+                <option value="designer">디자이너</option>
+                <option value="opereator">영업사원</option>
+                <option value="serving">수행원</option>
+            </select> &nbsp;&nbsp;
+            <label for="mjob">부업선택</label> 
+            <select name="mjob" id="mjob" multiple>
+                <option value="nurse">간호사</option>
+                <option value="ceo">경영인</option>
+                <option value="cto">기술경영인</option>
+                <option value="officer">공무원</option>
+            </select> <br><br>
+            <label for="file">첨부파일</label>
+            <input type="file" name="file" id="file"><br>
+            <label for="comment" class="hg">하고싶은말</label><br>
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+        </form>
+    </div><br><br><br>
+    <div>
+        <h1>스텝10 anchor요소 연습하기!</h1>
+        <ul>
+            <li> <a href="todayPractice.html">상대경로로도 이동가능</a></li>
+            <li> <a href="http://14.63.164.99/student.html">공부방</a></li>
+            <li> <a href="C:\acorn2021\visual_work\html\hello.html">
+                파일시스템에서 절대경로로도 이동가능
+            </a></li>
+            <li> <a href="http://www.daum.net">웹에서의 절대경로로 이동</a></li>
+            <li id="three"> <a href="https://allthatstartup.tistory.com/entry/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85-%EA%B4%80%EB%A0%A8-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%96%BB%EB%8A%94-%ED%95%B4%EC%99%B8-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%93%A4">
+                이미지에 링크걸기 <br><img src="images/1.jpg"></a></li>
+            <li>
+                <a href="https://programmers.co.kr/">
+                <div>
+                    <h3>이미지와 글자에 둘다 링크걸기</h3>
+                    <img src="images/5.jpg">
+                </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 id="four">스텝10 anchor요소 연습하기2!</h1>
+        <ul>
+            <li> <a href="#one">테이블로이동</a></li>
+            <li> <a href="#two">회원가입폼으로 이동</a></li>
+            <li> <a href="#three">한효주 사진으로 이동</a></li>
+            <li><a href="javascript:alert('hello~');">눌러보셈</a></li>
+            <li> <a href="tel:010-2868-8557">전화걸기</a></li>
+            <li> <a href="mailto: dkdkdkdk555@naver.com">이메일 쓰기</a></li>
+        </ul>
+        </ul>
+    </div>
+</body>
+</html>
