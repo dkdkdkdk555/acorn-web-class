@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step03_object3.html</title>
+
+</head>
+<body>
+    <script>
+        var car1 = {
+          name:"roadSter",
+          color:"red",
+          drive:function(){
+              alert(this.name+" is driving");
+          }
+        };
+        var car2 = {
+            name:"cyberTruck",
+            color:"silver",
+            drive:function(){
+                alert(this.name+" is driving");
+             }
+        };
+        var car3 = {};
+        car3.name="modelS";
+        car3.color="white";
+        car3.drive=function(){
+            alert(this.name+" is driving");
+        };
+
+        // car1 object의 특정방 참조
+        var a= car1.name;
+        var b = car1.color;
+        
+        //car2 object 의 특정방 참조
+        var c = car2.name;
+        var d = car2.color;
+
+        //car1,  car2 object에 있는 drive()함수 호출
+        car1.drive();
+        car2.drive();
+    </script>
+
+</body>
+</html>
