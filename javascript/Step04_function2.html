@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><function4 class="html"></function4></title>
+</head>
+<body>
+    <h1>function 테스트 중...<h1>
+    <input type="text" name="inputName" placeholder="이름입력...." id="im"/>
+    <button onclick="enter();">입장하기</button>
+    <script>
+        function enter() {
+            var x = document.querySelector("#im").value;
+            //welcome(x);
+            welcome2(x);
+
+            //id가 im 인 요소에 입력한 문자열 지우기
+            document.querySelector("#im").value=" ";
+
+            //id가 im인 요소에 포커스 주기
+            document.querySelector("#im").focus();
+        }
+
+        function welcome(arg){
+            alert( arg + "님 환영합니다.");
+        }
+
+        var welcome2 = function(arg) {
+            alert(arg+ " 님 환영합니다.");
+        };
+
+    </script>
+    
+</body>
+</html>
