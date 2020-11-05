@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_array2.html</title>
+</head>
+<body>
+    <h1>array type 테스트</h1>
+    <button onclick="printNames();">출력하기</button>
+    <script>
+        let names = ["김구라", "지겹다", "신명호는", "놔두", "라고"];
+
+        
+        function printNames() {
+            for(var i=0; i<names.length; i++){
+                console.log(names[i])
+            };
+        }
+
+        for(let i=0; i<100; i++) {
+            console.log(i + " 번째 수행됨");
+        }
+    
+    </script>
+</body>
+</html>
