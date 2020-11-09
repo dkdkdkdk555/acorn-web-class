@@ -13,21 +13,33 @@
 <body>
     <h1>그림판</h1>
     <canvas id="myCanvas" width="500" height="500"></canvas>
-    <input type="color" id="inputColor"/>
-    <input type="number" id="linesizing">
+    <input type="color" id="inputColor"/><br>
+    <button id="bgColor">배경색</button>
+    <br>
+    <select id="lineWidth">
+        <option value="1">1</option><!--innertext를 value로 쓸거면 value 안써줘도 됨-->
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
     <script>
         //canvas 요소의 참조값 얻어오기
         let canvas = document.querySelector("#myCanvas");
         //canvas 에 렌더링 할 수 있는 도구(context)의 참조값 얻어오기
         let context = canvas.getContext("2d");
 
-        //선두께
-        let linesizier = 10;
-        context.linesize = linesizier;
+        //선굵기
+       let currentWidth = 5; //기본값
 
-        document.querySelector("#linesizing").addEventListener("change", function(){
-            linesizier = this.value;
-        })
+        document.querySelector("#lineWidth").addEventListener("change", function(){
+            currentWidth = this.value;
+        });
 
         context.lineCap = "round" //선의 시작과 끝을 둥글게
         context.lineJoin="round" //선의 교차점을 둥글게
@@ -64,7 +76,7 @@
             //변수에 지정된 값으로 색상 지정
             context.strokeStyle=color;
             //변수에 지정된 값으로 선굵기 지정
-            context.linesize = linesizier; 
+            context.lineWidth = currentWidth; 
            
         });
 
@@ -85,6 +97,13 @@
             //마우스떼면 그려지지 않도록 상태값 바꿈
             isDraw = false;
         });
+
+        //배경색 체인지!
+        document.querySelector("#bgColor").addEventListener("click", function(){
+            context.fillRect(0, 0, 500, 500);
+            context.fillStyle = color;
+        })
+
     </script>
 </body>
 </html>
