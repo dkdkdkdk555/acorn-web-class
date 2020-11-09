@@ -7,6 +7,7 @@
     <style>
         canvas{
             border: 1px dashed rgb(100, 100, 100);
+            cursor: crosshair;
         }
     </style>
 </head>
@@ -28,6 +29,10 @@
         <option value="9">9</option>
         <option value="10">10</option>
     </select>
+    <label>
+        지우개 기능
+        <input type="checkbox" id="eraseCheck"/>
+    </label>
     <script>
         //canvas 요소의 참조값 얻어오기
         let canvas = document.querySelector("#myCanvas");
@@ -45,7 +50,7 @@
         context.lineJoin="round" //선의 교차점을 둥글게
 
         let color = "black"; //선의 색상
-        context.strokeStyle = color;0
+        context.strokeStyle = color;
 
         document.querySelector("#inputColor").addEventListener("change", function(){
             //color 변수에 현재 value 값을 대입한다.
@@ -61,12 +66,16 @@
         context.closePath(); //경로닫기
         */
 
-        //현재 그림을 그리고 있는지 여부
-        let isDraw = false; //초기값은 일단 false로 지정
+        //마우스가 down상태에 있는지 여부
+        let isMouseDown = false;
+        //그림을 그리는 상태인지 지우는 상태인지 여부
+        // isErase = false => 그림을 그리는 상태, true => 지우는 상태
+        let isErase = false;
+      
 
         canvas.addEventListener("mousedown", function(event){
-            //마우스다운하면 그리고 있는 상태로 바꿔준다.
-            isDraw = true;
+            //마우스 다운상태로 체인지
+            isMouseDown = true;
             //이벤트가 일어난 곳의 좌표
             let x = event.offsetX;
             let y = event.offsetY;
@@ -82,28 +91,42 @@
 
         //canvas 에 mousemove 이벤트 처리
         canvas.addEventListener("mousemove", function(event){
-            //만일 현재 그림을 그리고 있는 상태 일때    
-            if (isDraw == true){
-                //이벤트가 일어난 곳의 좌표
+            //마우스다운한 상태   
+            if (isMouseDown == true){
                 let x = event.offsetX;
                 let y = event.offsetY;
-                context.lineTo(x, y);
-                context.stroke(); //윤곽선을 이용하여 도형을 그립니다.
-                //다운하고 움직이는 순간 그려지도록 mousedown 에서 stroke() 없에준거다
+                if(isErase){ //지우는상태이면
+                    context.clearRect(x, y, 10, 10);
+                } else { //지우는 상태가 아니라면
+                    context.lineTo(x, y);
+                    context.stroke(); //윤곽선을 이용하여 도형을 그립니다.
+                    //다운하고 움직이는 순간 그려지도록 mousedown 에서 stroke() 없에준거다
+                }
             }
         });
 
         canvas.addEventListener("mouseup", function() {
             //마우스떼면 그려지지 않도록 상태값 바꿈
-            isDraw = false;
+            isMouseDown = false;
         });
 
         //배경색 체인지!
         document.querySelector("#bgColor").addEventListener("click", function(){
             context.fillRect(0, 0, 500, 500);
             context.fillStyle = color;
-        })
+        });
 
+        //체크박스의 체크 상태가 바뀌었을때 호출되는 함수 등록
+        document.querySelector("#eraseCheck").addEventListener("change", function(){
+            //체크여부를 (true or false) 변수에 담는다.
+            isErase = this.checked;
+            //지우는 상태 여부에 따라 커서의 모양을 바꿔준다.
+            if(isErase) {
+                document.querySelector("#myCanvas").style.cursor="not-allowed";
+            } else {
+                document.querySelector("#myCanvas").style.cursor="crosshair";
+            }
+        });
     </script>
 </body>
 </html>

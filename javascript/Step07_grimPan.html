@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grim_Pan</title>
+    <style>
+        canvas{
+            border: 1px dashed rgb(30, 107, 184);
+        }
+    </style>
+</head>
+<body>
+    <h1>그림판</h1>
+    <canvas id="Grim" width="500" height="500"></canvas>
+    <input type="color" id="choiceColor"><br>
+    <button type="submit" id="backColorBtn">배경색</button><br>
+    <select id="lineWidth">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <label >
+        지우개 기능
+        <input type="checkbox" id="eraser"/>
+    </label>
+    
+    <script>
+        document.querySelector("#Grim").style.cursor="crosshair";
+        //캔버스 객체의 필드를 모두 위임시킨다
+        let canvas = document.querySelector("#Grim");
+        //랜더링 시키기 = 색연필얻기
+        let context = canvas.getContext("2d")//색연필의 종류는 2d로 하겠다.
+
+        //굵기, 색
+        context.lineWidth = 5;
+        context.strokeStyle = "black";
+
+        //색 디폴트값설정(블랙) 및 컬러타입인풋요소 이벤트처리 (색깔바꾸기)
+        let lineColor = context.strokeStyle;
+
+        document.querySelector("#choiceColor").addEventListener("change", function(){
+            lineColor = this.value;
+
+        });
+
+        //굵기 디폴트값설정(5) 및 셀렉트요소 이벤트처리 (선굵기 바꾸기)
+        let lineWidth = context.lineWidth;
+
+        document.querySelector("#lineWidth").addEventListener("change", function() {
+            lineWidth = this.value;
+        });
+
+        //배경색바꾸기 버튼 이벤트 처리
+        document.querySelector("#backColorBtn").addEventListener("click", function() {
+            context.fillRect(0, 0, 500, 500);
+            context.fillStyle = lineColor;
+        });
+
+        //마우스 다운상태
+        let isMousedown = false;
+        //지우개 상태
+        let isErase = false;
+
+        //지우개체크
+        document.querySelector("#eraser").addEventListener("change", function() {
+            isErase = this.checked;
+        });
+
+        //마우스를 누르면 그릴 준비
+        canvas.addEventListener("mousedown", function(event){
+            isMousedown = true;
+
+            if(isMousedown) {
+            //눌렀을때 지점
+            let x = event.offsetX;
+            let y = event.offsetY;
+            //그 지점부터 그릴준비
+            context.beginPath();
+            context.moveTo(x, y);
+            }
+
+            context.strokeStyle = lineColor;
+            context.lineWidth = lineWidth;
+        });
+
+        //마우스움지이는 구간 그리기
+        canvas.addEventListener("mousemove", function(event){
+            if(isMousedown == true) {
+                let x = event.offsetX;
+                let y = event.offsetY;
+                if(isErase) {
+                    context.clearRect(x, y, 10, 10);
+                } else {
+                    context.lineTo(x, y); //움직임을 선으로받아
+                    context.stroke(); // 그립니다.
+                }
+            }      
+        });
+
+        //마우스떼면 그만그려
+        canvas.addEventListener("mouseup", function(event){
+            isMousedown = false;
+        });
+
+         
+
+    </script>
+</body>
+</html>

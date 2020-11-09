@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step08_example2.html</title>
+</head>
+<body>
+    <h1>논리 연산자 테스트중...</h1>
+    <input type="text" id="inputId" placeholder="아이디 입력..."/>
+    <input type="password" id="inputPwd" placeholder="비밀번호 입력..."/>
+    <button id="authBtn">인증하기</button>
+    <p id="result"></p>
+    <script>
+        document.querySelector("#authBtn").addEventListener("click", function() {
+            let id = document.querySelector("#inputId").value;
+            let pw = document.querySelector("#inputPwd").value;
+            
+            if(id == "dkdkdkdk555" && pw == "dnrgus2022") {
+                document.querySelector("#result").innerText = "욱현씨 인증 되었습니다."
+            } else {
+                document.querySelector("#result").innerText = "틀렸습니다... 아재"
+            }
+        })
+    </script>
+    
+</body>
+</html>
