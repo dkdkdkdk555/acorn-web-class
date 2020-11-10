@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step09_createElement2.html</title>
+    <style>
+        /*class="my-class" 속성을 가지고 있는 요소에 적용할 css*/
+        .my-class{
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>원하는 요소를 동적으로 만들기 연습</h1>
+    <button id="makeBtn">만들기</button>
+    <div id="one">
+
+    </div>
+    <script>
+        /*
+
+         버튼눌렀을때 =>
+        1.아래와 같은 모양의 요소를 javascript로 만들기
+        
+            <p class="my-class">p1요소 입니다.</p> 
+
+        2. 만든 요소를 id가 one 인 요소의 자식 요소로 추가하기
+
+        */
+       
+        document.querySelector("#makeBtn").addEventListener("click", function(){
+            let p = document.createElement("p"); //항상 요소만들면 변수에 담아줘야 안없어진다.
+            p.className="my-class"
+           p.innerText="경훈"
+            document.querySelector("div").append(p);
+        });
+        
+        
+    </script>
+</html>
